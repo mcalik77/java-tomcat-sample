@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'maven-3.8.4'
+        maven 'maven-3.9.11'
     }
     stages {
         stage('Build Application') {
@@ -20,13 +20,5 @@ pipeline {
                 build job: 'Deploy-Application-Staging-Environment'
             }
         }
-        #stage('Deploy to Production Environment') {
-        #    steps {
-        #        timeout(time:5, unit:'DAYS') {
-        #            input message:'Approve PRODUCTION Deployment?'
-        #        }
-        #        build job: 'Deploy-Application-Staging-Environment'
-        #   }
-        # }
     }
 }
